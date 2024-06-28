@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <!-- Additional styles for grid layout -->
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .photo {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-blue-50">
+    <!-- Include the header from index.html -->
+    <header class="flex flex-row w-full bg-teal-50 md:bg-sky-400 md:h-[5rem] col-span-6">
+        <nav class="flex w-full flex-row items-center justify-between">
+            <div class="flex flex-row items-center gap-5 pl-5">
+                <div class="flex md:hidden">
+                    <a href="#burger" id="btn__open-burger">
+                        <img class="flex" width="30rem" height="30rem" src="/images/icon__burger.png" alt="Icône Burger">
+                        <span class="icon__burger">
+                            <span></span><span></span><span></span>
+                        </span>
+                    </a>
+                </div>
+                <div class="flex justify-center p-2"><a href="#home"><img class="flex bg-blue-50 border-2 border-black rounded" width="50rem" height="50rem" src="/images/logo_finn.svg" alt="logo dessin d'enfant"></a></div>
+                <div class="hidden gap-16 md:flex">
+                    <a class="hover:underline" href="#galerie">Galerie</a>
+                    <a class="hover:underline" href="#souvenirs">Souvenirs</a>
+                    <a class="hover:underline" href="#jeux">Jeux</a>
+                </div>
+            </div>
+            <div class="flex gap-3">
+                <a href="btn__search"><img src="/images/search.svg" alt="Icone loupe"></a>
+                <a href="btn__news"><img src="/images/news.svg" alt="Icone journal"></a>
+                <a href="btn__fav"><img src="/images/favorite.svg" alt="Icone coeur"></a>
+                <a href="btn__idcado"><img src="/images/gift.svg" alt="Icone cadeau"></a>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main content -->
+    <main class="grid grid-cols-6">
+        <div class="col-span-6 p-5">
+            <h1 class="text-3xl font-bold mb-5">Galerie Photos</h1>
+            
+            <!-- Filter controls -->
+            <div class="mb-5">
+                <label for="dateUploaded">Date de publication:</label>
+                <input type="date" id="dateUploaded">
+                
+                <label for="dateTaken">Date de prise:</label>
+                <input type="date" id="dateTaken">
+                
+                <label for="favorites">Favoris:</label>
+                <input type="number" id="favorites" min="0">
+                
+                <label for="tags">Tags:</label>
+                <input type="text" id="tags">
+                
+                <button id="applyFilters" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded">Appliquer les filtres</button>
+            </div>
+            
+            <!-- Gallery grid -->
+            <div class="gallery grid grid-cols-4 gap-4">
+                <!-- Photos will be dynamically added here -->
+            </div>
+        </div>
+    </main>
+
+    <script src="https://kit.fontawesome.com/9549dfcb31.js" crossorigin="anonymous"></script>
+    <script type="module" src="./assets/js/main.js"></script>
+    <script src="assets/js/gallery.js"></script>
+    
+</body>
+</html>
