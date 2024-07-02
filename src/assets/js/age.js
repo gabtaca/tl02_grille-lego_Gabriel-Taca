@@ -12,8 +12,8 @@ return { years: years, months: months };
 }
 
 function formatAgeText(age) {
-    var yearText = age.years === 1 ? 'an' : 'ans';
-    var monthText = age.months === 1 ? 'mois' : 'mois';
+    var yearText = age.years === 1 ? 'an et' : 'ans et';
+    var monthText = age.months === 1 ? 'mois,' : 'mois,';
     return age.years + ' ' + yearText + ' ' + age.months + ' ' + monthText;
 }
 
