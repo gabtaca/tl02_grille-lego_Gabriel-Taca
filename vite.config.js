@@ -8,7 +8,7 @@ export default defineConfig({
     outDir: '../dist',
   },
   server: {
-    port: 9010,
+    port: 8040,
   },
   css: {
     preprocessorOptions: {
