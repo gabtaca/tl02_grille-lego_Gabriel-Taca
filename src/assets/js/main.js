@@ -1,26 +1,67 @@
 // main.js
 import '../css/index.sass'
 import '../css/style.css'
+import '../js/age.js'
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleButton = document.getElementById("toggleButton");
-  const body = document.getElementById("body");
-  const card = document.getElementById("card");
+document.addEventListener('DOMContentLoaded', function () {
+    const selectElement = document.getElementById('location');
 
-  toggleButton.addEventListener("click", () =>{
+    function updateSelectedOption() {
+        const options = selectElement.options;
+
+        for (let i = 0; i < options.length; i++) {
+        const option = options[i];
+        const icon = option.getAttribute('data-icon');
+        const countryName = option.textContent.replace(/⚑ /g, '');
+
+        if (option.selected) {
+            option.innerHTML = `${icon} ${countryName}`;
+        } else {
+            option.innerHTML = countryName;
+        }
+        }
+    }
+
+    updateSelectedOption();
     
-    card.classList.toggle("bg-black")
-    card.classList.toggle("bg-pink-500")
-    body.classList.toggle("bg-cyan-200")
-    body.classList.toggle("bg-black")
-  })
-})
+    selectElement.addEventListener('change', updateSelectedOption);
+});
 
-const card = document.createElement("div");
-card.classList = "card-body, bg-black, w-[300px], h-[300px] text-white";
+//dropdown footer
+document.addEventListener('DOMContentLoaded', function() {
+    var coll = document.getElementsByClassName("exp_dropdown");
 
-const content = `
-<div class-"card>
-<p>300px / 300px</p>
-</div>`
+    for (var i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        var arrow = this.querySelector(".arrow");
+
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            arrow.classList.remove("rotate");
+        } else {
+            content.style.display = "block";
+            arrow.classList.add("rotate");
+        }
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    let lastScrollTop = 0;
+    const header = document.getElementById('header');
+
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+        header.style.transform = 'translateY(-100%)';
+        } else {
+        header.style.transform = 'translateY(0)';
+        }
+
+        lastScrollTop = scrollTop;
+    });
+});
